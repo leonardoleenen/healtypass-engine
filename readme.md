@@ -14,21 +14,20 @@ Estructura modelo del certificado.
     "cid":.....,
 	"request":{
 		...,
-		ksp:{
-			"public_key": ....
-			"kind": ...
+		"ksp":{
+			"public_key": ....,
+			"kind": ...,
 			"signature":...
 		}
-	}
+	},
 	"ca_response": {
 		...,
-		ksp:{
-			"public_key": ....
-			"kind": ...
-			"signature":...
+		"ksp":{
+			"public_key": ....,
+			"kind": ...,
+			"signature":...,
 		}
-    }
-    "status" : .... 
+  },
 }
 ```
 
