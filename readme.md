@@ -145,7 +145,6 @@ Cada sección tiene sus atributos reservados que son utilizados por el engine pa
 | issuedOn | Fecha en la que fue requerido el certificado | 
 
 
-
 ### 2.5.2 Atributos de ca_response
 
 | Atributo | Descripción | 
