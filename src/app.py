@@ -9,7 +9,7 @@ from flask_cors import cross_origin
 import sys
 import json
 from flask_talisman import Talisman
-
+from bp.business import business_bp
 from dotenv import load_dotenv
 from flask_cors import CORS
 
@@ -52,6 +52,8 @@ Talisman(app, feature_policy=feature_policy)
 ''' 
 
 # Blue Prints
+app.register_blueprint(business_bp, url_prefix='/api')
+
 
 ''' 
 @app.before_request
