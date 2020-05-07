@@ -1,0 +1,6 @@
+Flask
+flask_cors
+pyjwt
+python-dotenv
+requests
+flask-talisman
