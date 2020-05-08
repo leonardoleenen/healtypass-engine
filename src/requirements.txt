@@ -4,3 +4,7 @@ pyjwt
 python-dotenv
 requests
 flask-talisman
+Crypto
+py-cid
+py-multibase
+pymongo
