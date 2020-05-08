@@ -164,6 +164,67 @@ Cuando una solicitud es rechazada, de igual manera se genera un id de certificad
 
 Todos los certificados ya sean NO APROBADOS o bien que luego fueron revocados integran lo que se conoce como "Black List". Las black list es un repositorio de todos los certificados emitidos y que fueron revocados (no incluye a los que están vencidos)
 
+# 3. Descripción de servicios
+A continuación se describen los servicios que utiliza la solución. Todos los servicios tienen la misma arquitectura, son servicios REST que escuchan mediante un método POST y devuelven en todos los casos un JSON bien formateado. 
+
+Todos los servicios devuelven una respuesta con el siguiente formato 
+
+```json
+{
+  "success": true,
+  "payload": ...
+}
+```
+
+donde success indica el resultado del proceso si fue exitoso o no y payload es el cuerpo del resultado del proceso. Para el caso que exista un error de negocio o de regla el servicio devolverá un false en success y en payload un mensaje textual del error como lo muestra el siguiente ejemplo: 
+
+```json
+{
+  "success":false,
+  "payload":"La fecha de nacimiento no es válida" 
+}
+```
+
+Adicionalmente los servicios manejan como estandar los HTTP code STATUS de acuerdo a la siguiente politicia. 
+
+- STATUS 200, significa que la operación pudo completarse exitosamente
+- STATUS 422, significa que por alguna razon de negocios el proceso no se pudo completar
+- STATUS 401, significa que se está intentando realizar una operación no permitida 
+- STATUS 500, siignifica que ha ocurrido un error general inesperado. 
+
+## 3.1 Generación de request
+
+Este servicio permite generar un request (solicitud de certificado)
+
+**Endpoint: SERVER/api/generate_request**
+
+Mensaje de input
+```json
+{
+	"firstName":"Leonardo",
+	"lastName":"Leenen",
+	"birthDate":"27/06/1977",
+	"id":"111111",
+	"type":"permiso_movilidad"
+}
+```
+
+Mensaje Resultante
+```json
+{
+  "payload": {
+    "birthDate": "27/06/1977",
+    "cid": "zEMHjgCkq9vS8ksdoumuZaeoZZWzfc4m5rKd62Jis8N6bnZbRiH2r7qcBKq5UFVEbvXsmeGYtCuYKM6pK27sbxjtNpcgpLysPdRZYyK2khBuTtq3ou5JF7ZtRRL5s6tCJxp9Zy7nQAC33XrC8sCMaDC51r59opZXSHchV9vgbrDK9HqiEmHEdq2F5yyVHNdWxYCcgWPTw5VvtffJSN4NYoKddptKF89g7SGnsCsyvFnWuinBUZzYbVv",
+    "firstName": "Leonardo",
+    "id": "111111",
+    "lastName": "Leenen",
+    "type": "permiso_movilidad"
+  },
+  "success": true
+}
+```
+**NOTA: el atributo cid dentro de payload es el id que luego debe usarse para consultar el estado de ese request**
+
 # Que pasa si? 
 
 ## 1. La C.A deja de responder 

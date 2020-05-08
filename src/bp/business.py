@@ -28,16 +28,16 @@ def generate_request():
 
     if not success:
         return {
-            'result':False,
-            'error': result
+            'success':False,
+            'payload': result
         },422
     
     for key,value in result['payload'].items():
         new_cert[key]=value
        
     return {
-        'result': success,
-        'certificate': new_cert
+        'success': success,
+        'payload': new_cert
     },200
 
 
