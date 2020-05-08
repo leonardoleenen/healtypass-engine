@@ -116,7 +116,7 @@ Esa información vuelve a HealthyPass quien termina de confeccionar el certifica
         "status":"APPROVED",
         "certKind":"A",
         "issuedOn":1889301344,
-        "type":"ASISTENCIA A PERSONAS MAYORES O CON DISCAPACIDAD",
+        "typeOfCertificate":"ASISTENCIA A PERSONAS MAYORES O CON DISCAPACIDAD",
         "authorizedSince":198908912,
         "authorizedUntil":198889998,
         "authorizedTrip":[[-32.32132,68.0929302],[-38.0023232,72.0023223]],

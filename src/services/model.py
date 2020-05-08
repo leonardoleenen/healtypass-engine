@@ -60,4 +60,20 @@ class CrtRequest(Model):
     def issuedOn(self,value):
         self._issuedOn= value
 
+    @property
+    def status(self):
+        return self._status
+
+    @status.setter
+    def status(self,value):
+        self._status= value
+
+    @property
+    def resolvedOn(self):
+        return self._resolvedOn
+
+    @resolvedOn.setter
+    def resolvedOn(self,value):
+        self._resolvedOn= value
+
 

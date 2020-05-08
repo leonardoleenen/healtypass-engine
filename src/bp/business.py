@@ -40,7 +40,6 @@ def generate_request():
         'certificate': new_cert
     },200
 
-    
 
 @business_bp.route("/get_request",methods=['POST','OPTIONS'])
 def get_request():
